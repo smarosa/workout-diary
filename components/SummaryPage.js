@@ -9,7 +9,7 @@ export default function SummaryPage(){
     return(
         <SafeAreaView style={Styles.container}>
             <View style={Styles.contentBox}>
-            <Text variant="headlineLarge" style={[Styles.header, {color: theme.colors.primary }]}>Workout summary page</Text>
+            <Text variant="headlineLarge" style={[Styles.header, {color: theme.colors.primary }]}>Workout summary</Text>
             </View>
         </SafeAreaView>
     )

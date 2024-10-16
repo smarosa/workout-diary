@@ -15,10 +15,10 @@ export default function AddNewPage() {
     return (
         <SafeAreaView style={Styles.container}>
             <View style={Styles.contentBox}>
-            <Text variant="headlineLarge" style={[Styles.header, {color: theme.colors.primary }]}>Add new workout</Text>
-            <CategorySelection value={category} setValue={setCategory} values={categories} />
-            <TextInput mode="flat" style={Styles.textInput} value={distance} onChangeText={setDistance}/>
-            <TextInput mode="flat" style={Styles.textInput} value={duration} onChangeText={setDuration}/>
+                <Text variant="headlineLarge" style={[Styles.header, { color: theme.colors.primary }]}>Add new workout</Text>
+                <CategorySelection value={category} setValue={setCategory} values={categories} />
+                <TextInput label={'Distance'} mode="outlined" style={Styles.textInput} value={distance} onChangeText={setDistance} />
+                <TextInput label={'Duration'} mode="outlined" style={Styles.textInput} value={duration} onChangeText={setDuration} />
             </View>
         </SafeAreaView>
     )
@@ -36,7 +36,7 @@ function CategorySelection({ value, setValue, values }) {
                 buttons={values.map(v => ({
                     value: v,
                     icon: v,
-                    style: {backgroundColor: v == value ? theme.colors.primary : null}
+                    style: { backgroundColor: v == value ? theme.colors.primary : null }
                 }))}
             />
         </View>

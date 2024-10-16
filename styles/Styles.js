@@ -17,6 +17,7 @@ const Styles = StyleSheet.create({
     },
     header: {
         textAlign: "center",
+        fontFamily: 'Nunito',
         marginTop: 20,
         marginBottom: 20
     },

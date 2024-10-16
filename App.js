@@ -7,6 +7,7 @@ import WorkoutContext from './components/WorkoutContext';
 import AddNewPage from './components/AddNewPage';
 import SummaryPage from './components/SummaryPage';
 import SettingsPage from './components/SettingsPage';
+import FontComponent from './components/FontComponent';
 
 const routes = [
   { key: 'addworkout', title: 'Add workout', focusedIcon: 'plus-box-outline' },
@@ -36,13 +37,14 @@ export default function App() {
   return (
     <PaperProvider theme={WorkoutTheme}>
       <WorkoutContext.Provider value={{ workout, setWorkout }}>
+        <FontComponent>
         <BottomNavigation
           navigationState={{ index: navindex, routes }}
           onIndexChange={setNavindex}
           renderScene={renderScene}
         />
+        </FontComponent>
       </WorkoutContext.Provider>
     </PaperProvider>
   );
 }
-
