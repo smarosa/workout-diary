@@ -17,14 +17,14 @@ export default function SummaryPage() {
 
     return (
         <SafeAreaView style={Styles.container}>
-                <Text variant="headlineLarge" style={[Styles.header, { color: theme.colors.primary }]}>Workouts Summary</Text>
-                <FlatList 
-                    data = {workout}
-                    renderItem={({ item }) => (
-                        <Item item = {item} convertDistance={convertDistance} unit={unit} />
-                    )}
-                    keyExtractor = {item => item.id.toString()}
-                />
+            <Text variant="headlineLarge" style={[Styles.header, { color: theme.colors.primary }]}>Workouts Summary</Text>
+            <FlatList
+                data={workout}
+                renderItem={({ item }) => (
+                    <Item item={item} convertDistance={convertDistance} unit={unit} />
+                )}
+                keyExtractor={item => item.id.toString()}
+            />
         </SafeAreaView>
     );
 }
@@ -33,9 +33,9 @@ function Item({ item, convertDistance, unit }) {
     return (
         <Card style={Styles.card}>
             <Card.Title
-            titleVariant="titleMedium"
-            title={ item.date }
-            left={props => <Avatar.Icon icon={item.category} size={40}/>}
+                titleVariant="titleMedium"
+                title={item.date}
+                left={props => <Avatar.Icon icon={item.category} size={40} />}
             />
             <Card.Content>
                 <Text>Distance: {convertDistance(item.distance)} {unit}</Text>

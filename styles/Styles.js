@@ -27,10 +27,22 @@ const Styles = StyleSheet.create({
         marginTop: 6,
         marginBottom: 6
     },
+    calendarView: {
+        flexDirection: "row",
+        justifyContent: "center",
+        borderWidth: 1,
+        borderRadius: 5,
+        margin: 10,
+        padding: 10
+    },
+    calendar: {
+        borderWidth: 2
+    },
     buttonAdd: {
         margin: 10,
         marginTop: 12,
-        marginBottom: 40
+        marginBottom: 40,
+        padding: 20
     },
     card: {
         borderWidth: 1,
