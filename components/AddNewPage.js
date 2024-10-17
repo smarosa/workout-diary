@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { SafeAreaView, View, Alert, Modal, Pressable } from "react-native";
-import { Button, SegmentedButtons, Text, TextInput, useTheme } from "react-native-paper";
+import { SafeAreaView, View, Alert, Pressable } from "react-native"; //Modal
+import { Button, SegmentedButtons, Text, TextInput, useTheme, Modal, Portal } from "react-native-paper";
 import Styles from "../styles/Styles";
 import WorkoutContext from "./WorkoutContext";
 import UnitContext from "./UnitContext";
@@ -53,7 +53,7 @@ export default function AddNewPage() {
         const convertedDistance = unit === 'miles' ? (distance / 0.621371) : distance;
         const durationWithUnit = duration + ' min';
 
-        const workoutDate = date ? date.dateString : new Date().toDateString();
+        const workoutDate = date ? new Date(date.dateString).toDateString() : new Date().toDateString();
 
         const modified = [...workout, {
             id,
@@ -89,9 +89,11 @@ export default function AddNewPage() {
                 onChangeText={handleDurationChange}
             />
             <View style={[Styles.calendarView, { backgroundColor: theme.colors.background, borderColor: theme.colors.secondary }]}>
-                <Modal visible={visible} transparent={true}>
-                    <Calendar style={Styles.calendar} onDayPress={dateSelected} />
-                </Modal>
+                <Portal>
+                    <Modal visible={visible} onDismiss={() => setVisible(false)} contentContainerStyle={{ backgroundColor: 'white', padding: 20 }}>
+                        <Calendar style={Styles.calendar} onDayPress={dateSelected} />
+                    </Modal>
+                </Portal>
                 <Pressable onPress={() => setVisible(true)}>
                     <Text style={[{ fontSize: 20 }, { color: theme.colors.secondary }]}>{date ? date.dateString : 'Select date'}</Text>
                 </Pressable>
