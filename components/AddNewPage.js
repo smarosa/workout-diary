@@ -18,32 +18,23 @@ export default function AddNewPage() {
     const { unit } = useContext(UnitContext);
 
     const handleDistanceChange = (text) => {
-        // Check if input is empty
-        if (text === '') { 
-            setDistance(text);
-            return;
-        }
-        // Convert to number
+        // Convert input to number
         const distanceValue = Number(text);
-
-        // Check if negative number
-        if (distanceValue < 0) {
+        
+        // Check if input is empty, not a number, or a negative number
+        if (text === '' || isNaN(distanceValue) || distanceValue < 0) {
             Alert.alert("Invalid input", "Only use positive numbers, please.");
         } else {
             setDistance(text); // Set new value if valid
         }
     };
-    const handleDurationChange = (text) => {
-        // Check if input is empty
-        if (text === '') { 
-            setDuration(text);
-            return;
-        }
-        // Convert to number
-        const durationValue = Number(text);
 
-        // Check if negative number
-        if (durationValue < 0) {
+    const handleDurationChange = (text) => {
+        // Convert input to number
+        const durationValue = Number(text);
+        
+        // Check if input is empty, not a number, or a negative number
+        if (text === '' || isNaN(durationValue) || durationValue < 0) {
             Alert.alert("Invalid input", "Only use positive numbers, please.");
         } else {
             setDuration(text); // Set new value if valid
@@ -82,7 +73,7 @@ export default function AddNewPage() {
             value={distance}
             onChangeText={handleDistanceChange}
             //onChangeText={setDistance}
-            keyboardType="numeric"
+            //keyboardType="numeric"
             />
             <TextInput
             label={'Duration (min)'}
@@ -91,7 +82,7 @@ export default function AddNewPage() {
             value={duration}
             onChangeText={handleDurationChange}
             //onChangeText={setDuration}
-            keyboardType="numeric"
+            //keyboardType="numeric"
             />
             <Button mode="contained" style={Styles.buttonAdd} onPress={addWorkout}>Add new workout</Button>
         </SafeAreaView>
