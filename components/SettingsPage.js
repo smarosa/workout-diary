@@ -11,13 +11,16 @@ export default function SettingsPage() {
 
     return (
         <SafeAreaView style={Styles.container}>
-            <Text variant="headlineLarge" style={[Styles.header, { color: theme.colors.primary }]}>Settings</Text>
-            <RadioButton.Group value={unit} onValueChange={value => setUnit(value)}>
-                <View>
-                    <RadioButton.Item label="Kilometres" value="km" />
-                    <RadioButton.Item label="Miles" value="miles" />
-                </View>
-            </RadioButton.Group>
+            <View>
+                <Text variant="headlineLarge" style={[Styles.header, { color: theme.colors.primary }]}>Settings</Text>
+                <RadioButton.Group value={unit} onValueChange={value => setUnit(value)}>
+                    <View style={[Styles.settingsView, { backgroundColor: theme.colors.background, borderColor: theme.colors.secondary }]}>
+                        <Text style={Styles.optionsText}>Choose unit for distance</Text>
+                        <RadioButton.Item label="Kilometres" value="km" />
+                        <RadioButton.Item label="Miles" value="miles" />
+                    </View>
+                </RadioButton.Group>
+            </View>
         </SafeAreaView>
     )
 }

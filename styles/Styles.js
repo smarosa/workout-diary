@@ -4,7 +4,7 @@ import Constants from "expo-constants";
 const Styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fffff0',
+        backgroundColor: '#f6f1f4',
         alignItems: 'stretch',
         justifyContent: "center",
         padding: 10,
@@ -49,6 +49,7 @@ const Styles = StyleSheet.create({
         justifyContent: "center"
     },
     surface: {
+        flex: 0.32,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
@@ -56,14 +57,23 @@ const Styles = StyleSheet.create({
         borderRadius: 10,
         margin: 2,
         padding: 1,
-        width: 120
     },
     card: {
         borderWidth: 1,
-        margin: 10
-    }
+        margin: 10,
+    },
+    settingsView: {
+        borderWidth: 1,
+        borderRadius: 5,
+        margin: 40,
+        padding: 20,
+    },
+    optionsText: {
+        fontSize: 20,
+        padding: 10,
+    },
 });
 
 export default Styles;
 
-//Colors: ivory '#fffff0', '#d4115c'
+//Colors: '#f6f1f4', '#d4115c'

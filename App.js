@@ -19,8 +19,8 @@ const routes = [
 export default function App() {
 
   const firstWorkouts = [
-    { id: 1, category: 'run', distance: 5, duration: '30 mins', date: 'Tue Oct 1 2024' },
-    { id: 2, category: 'bike', distance: 20, duration: '60 mins', date: 'Fri Oct 4 2024' },
+    { id: 1, category: 'run', distance: 5, duration: '30 min', date: 'Tue Oct 1 2024' },
+    { id: 2, category: 'bike', distance: 20, duration: '60 min', date: 'Fri Oct 4 2024' },
   ];
 
   const [unit, setUnit] = useState('km'); //stores unit

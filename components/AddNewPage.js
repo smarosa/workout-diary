@@ -51,7 +51,7 @@ export default function AddNewPage() {
     function addWorkout() {
         const id = Date.now();
         const convertedDistance = unit === 'miles' ? (distance / 0.621371) : distance;
-        const durationWithUnit = duration + ' mins';
+        const durationWithUnit = duration + ' min';
 
         const workoutDate = date ? date.dateString : new Date().toDateString();
 

@@ -12,7 +12,7 @@ export default function SummaryPage() {
     const { unit } = useContext(UnitContext);
 
     function convertDistance(distance) {
-        return unit === 'miles' ? (distance * 0.621371).toFixed(0) : distance.toFixed(0);
+        return unit === 'miles' ? (distance * 0.621371).toFixed(0) : distance; //problem with toFixed
     }
 
     function calculateTotalDistance(category) {
@@ -48,20 +48,20 @@ export default function SummaryPage() {
             />
         </SafeAreaView>
     );
-}
 
-function Item({ item, convertDistance, unit }) {
-    return (
-        <Card style={Styles.card}>
-            <Card.Title
-                titleVariant="titleMedium"
-                title={item.date}
-                left={props => <Avatar.Icon icon={item.category} size={40} />}
-            />
-            <Card.Content>
-                <Text>Distance: {convertDistance(item.distance)} {unit}</Text>
-                <Text>Duration: {item.duration}</Text>
-            </Card.Content>
-        </Card>
-    );
+    function Item({ item, convertDistance, unit }) {
+        return (
+            <Card style={[Styles.card, { backgroundColor: theme.colors.background, borderColor: theme.colors.secondary }]}>
+                <Card.Title
+                    titleVariant="titleMedium"
+                    title={item.date}
+                    left={props => <Avatar.Icon icon={item.category} size={40} />}
+                />
+                <Card.Content>
+                    <Text>Distance: {convertDistance(item.distance)} {unit}</Text>
+                    <Text>Duration: {item.duration}</Text>
+                </Card.Content>
+            </Card>
+        );
+    }
 }
