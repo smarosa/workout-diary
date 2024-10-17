@@ -8,6 +8,7 @@ import AddNewPage from './components/AddNewPage';
 import SummaryPage from './components/SummaryPage';
 import SettingsPage from './components/SettingsPage';
 import FontComponent from './components/FontComponent';
+import UnitContext from './components/UnitContext';
 
 const routes = [
   { key: 'addworkout', title: 'Add workout', focusedIcon: 'plus-box-outline' },
@@ -17,9 +18,15 @@ const routes = [
 
 export default function App() {
 
-  const [workout, setWorkout] = useState([]);
-  const [navindex, setNavindex] = useState(0);
-  
+  const firstWorkouts = [
+    { id: 1, category: 'run', distance: 5, duration: '30 mins', date: 'Tue Oct 1 2024' },
+    { id: 2, category: 'bike', distance: 20, duration: '60 mins', date: 'Fri Oct 4 2024' },
+  ];
+
+  const [unit, setUnit] = useState('km'); //stores unit
+  const [workout, setWorkout] = useState(firstWorkouts); //stores workouts
+  const [navindex, setNavindex] = useState(0); //stores navigation
+
   console.log(workout); //check input getting added
 
   const WorkoutTheme = {
@@ -39,13 +46,15 @@ export default function App() {
   return (
     <PaperProvider theme={WorkoutTheme}>
       <WorkoutContext.Provider value={{ workout, setWorkout }}>
-        <FontComponent>
-        <BottomNavigation
-          navigationState={{ index: navindex, routes }}
-          onIndexChange={setNavindex}
-          renderScene={renderScene}
-        />
-        </FontComponent>
+        <UnitContext.Provider value={{ unit, setUnit }}>
+          <FontComponent>
+            <BottomNavigation
+              navigationState={{ index: navindex, routes }}
+              onIndexChange={setNavindex}
+              renderScene={renderScene}
+            />
+          </FontComponent>
+        </UnitContext.Provider>
       </WorkoutContext.Provider>
     </PaperProvider>
   );
