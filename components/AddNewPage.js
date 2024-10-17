@@ -7,7 +7,6 @@ import UnitContext from "./UnitContext";
 import { Calendar } from "react-native-calendars";
 
 const categories = ['walk', 'bike', 'run'];
-//let workoutId = 0;
 
 export default function AddNewPage() {
 
@@ -51,7 +50,6 @@ export default function AddNewPage() {
 
     function addWorkout() {
         const id = Date.now();
-        //const date = new Date();
         const convertedDistance = unit === 'miles' ? (distance / 0.621371) : distance;
         const durationWithUnit = duration + ' mins';
 

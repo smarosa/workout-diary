@@ -13,8 +13,8 @@ const Styles = StyleSheet.create({
     header: {
         textAlign: "center",
         fontFamily: 'Nunito',
-        marginTop: 40,
-        marginBottom: 40
+        marginTop: 20,
+        marginBottom: 20
     },
     categories: {
         justifyContent: "center",
@@ -43,6 +43,20 @@ const Styles = StyleSheet.create({
         marginTop: 12,
         marginBottom: 40,
         padding: 20
+    },
+    distanceView: {
+        flexDirection: "row",
+        justifyContent: "center"
+    },
+    surface: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        borderWidth: 1,
+        borderRadius: 10,
+        margin: 2,
+        padding: 1,
+        width: 120
     },
     card: {
         borderWidth: 1,
