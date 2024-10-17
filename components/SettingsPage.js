@@ -8,9 +8,7 @@ export default function SettingsPage(){
 
     return(
         <SafeAreaView style={Styles.container}>
-            <View style={Styles.contentBox}>
-            <Text variant="headlineLarge" style={[Styles.header, {color: theme.colors.primary }]}>Settings page</Text>
-            </View>
+            <Text variant="headlineLarge" style={[Styles.header, {color: theme.colors.primary }]}>Settings</Text>
         </SafeAreaView>
     )
 }

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { SafeAreaView, View } from "react-native";
-import { SegmentedButtons, Text, TextInput, useTheme } from "react-native-paper";
+import { Button, SegmentedButtons, Text, TextInput, useTheme } from "react-native-paper";
 import Styles from "../styles/Styles";
+import WorkoutContext from "./WorkoutContext";
 
 const categories = ['walk', 'bike', 'run'];
+let workoutId = 0;
 
 export default function AddNewPage() {
 
@@ -11,15 +13,22 @@ export default function AddNewPage() {
     const [distance, setDistance] = useState('');
     const [duration, setDuration] = useState('');
     const theme = useTheme();
+    const {workout, setWorkout} = useContext(WorkoutContext);
+
+    function addWorkout(){
+        const id = workoutId++;
+        const date = new Date();
+        const modified = [...workout, {id, category, distance, duration, date: date.toDateString()}];
+        setWorkout(modified);
+    }
 
     return (
         <SafeAreaView style={Styles.container}>
-            <View style={Styles.contentBox}>
-                <Text variant="headlineLarge" style={[Styles.header, { color: theme.colors.primary }]}>Add new workout</Text>
+                <Text variant="headlineLarge" style={[Styles.header, { color: theme.colors.primary }]}>Add Workout</Text>
                 <CategorySelection value={category} setValue={setCategory} values={categories} />
                 <TextInput label={'Distance'} mode="outlined" style={Styles.textInput} value={distance} onChangeText={setDistance} />
                 <TextInput label={'Duration'} mode="outlined" style={Styles.textInput} value={duration} onChangeText={setDuration} />
-            </View>
+                <Button mode="contained" style={Styles.buttonAdd} onPress={addWorkout}>Add new workout</Button>
         </SafeAreaView>
     )
 }
